@@ -6,7 +6,6 @@ import './menu-item.styles.scss';
 const MenuItem = (props) => {
   const { title, imageUrl, size, linkUrl, history, match } = props;
 
-  console.log(`${match.url}${linkUrl}`)
   return (
     <div
       className={`menu-item ${size ?? ''}`}
