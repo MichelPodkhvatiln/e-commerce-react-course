@@ -1,9 +1,10 @@
 import React, {Component} from "react";
 import { Route, Switch, Redirect } from 'react-router-dom';
+
 import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/user/user.actions";
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-import { setCurrentUser } from "./redux/user/user.actions";
 
 import Header from "./components/header/header.component";
 import HomePage from "./pages/homepage/homepage.component";
