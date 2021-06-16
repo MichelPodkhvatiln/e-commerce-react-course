@@ -8,8 +8,8 @@ import ShopPage from "./pages/shop/shop.component";
 import Auth from "./pages/auth/auth.component";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       currentUser: null
