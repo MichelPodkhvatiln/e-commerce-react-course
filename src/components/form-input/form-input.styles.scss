@@ -12,7 +12,8 @@ $main-color: black;
   margin: 45px 0;
 
   .form-input {
-    background: white none;
+    background: none;
+    background-color: white;
     color: $sub-color;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
