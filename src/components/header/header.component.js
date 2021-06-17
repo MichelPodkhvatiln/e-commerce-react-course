@@ -8,7 +8,6 @@ import {
   LogoContainer,
   OptionsContainer,
   OptionLink,
-  OptionDiv
 } from './header.styles';
 
 import { ReactComponent as Logo } from '../../assets/crown.svg';
@@ -35,9 +34,9 @@ const Header = ({ currentUser, hidden }) => {
 
         {
           currentUser ?
-          <OptionDiv onClick={() => auth.signOut()}>
+          <OptionLink as={'div'} onClick={() => auth.signOut()}>
             SIGN OUT
-          </OptionDiv>
+          </OptionLink>
          :
           <OptionLink to='/auth'>
             SIGN IN
