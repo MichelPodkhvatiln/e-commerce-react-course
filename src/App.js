@@ -13,7 +13,6 @@ import Auth from "./pages/auth/auth.component";
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { setCurrentUser } from './redux/user/user.actions';
 
-
 class App extends Component {
   unsubscribeFromAuth = null;
 
@@ -66,7 +65,7 @@ class App extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
