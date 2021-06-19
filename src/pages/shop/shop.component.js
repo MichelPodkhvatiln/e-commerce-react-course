@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { connect } from "react-redux";
 
-import CollectionsOverview from "../../components/collection-overview/collections-overview.component";
-import CollectionPage from "../collection/collection.component";
+import CollectionsOverviewContainer from '../../components/collections-overview/collections-overview.container';
+import CollectionPageContainer from '../collection/collection.container';
 
-const ShopPage = ({ match }) => {
-  return (
-    <div className='shop-page'>
-      <Route path={`${match.path}`} component={CollectionsOverview} exact={true}/>
-      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
-    </div>
-  );
-};
+import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
 
-export default ShopPage;
+class ShopPage extends Component {
+  componentDidMount() {
+    const { fetchCollectionsStartAsync } = this.props;
+
+    fetchCollectionsStartAsync();
+  }
+
+  render() {
+    const { match } = this.props;
+
+    return (
+      <div className='shop-page'>
+        <Route
+          path={`${match.path}`} exact={true}
+          component={CollectionsOverviewContainer}
+        />
+        <Route
+          path={`${match.path}/:collectionId`}
+          component={CollectionPageContainer}
+        />
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+});
+
+export default connect(null, mapDispatchToProps)(ShopPage);
