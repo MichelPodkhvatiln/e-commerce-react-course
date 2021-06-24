@@ -3,6 +3,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { createStructuredSelector } from 'reselect';
 
+import { GlobalStyles } from "./global.styles";
+
 import Header from "./components/header/header.component";
 import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
@@ -19,6 +21,7 @@ const App = ({currentUser, checkUserSession}) => {
 
   return (
     <div>
+      <GlobalStyles />
       <Header />
       <Switch>
         <Route exact={true} path={'/'} component={HomePage}/>
